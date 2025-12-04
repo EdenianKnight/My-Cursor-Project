@@ -5,53 +5,241 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Cursors | Edenian Knight</title>
 </head>
-<body style="background-color: blanchedalmond;">
-    <h1 title="This is the main title of the page" style="color: coral;">Web Cursors Explained.</h1>
-    <h3 title="This is the author of the page." style="background-color: coral; color: white;">written by <span style="color: lime;">Edenian Knight</span>.</h3>
-    <img src="https://i.postimg.cc/7LY4ZDnR/web-cursors.png" alt="An image of webcursors"  title="A banner image showing basic web cursors" width="900" height="auto">
-    <div>
-        
-        <h2>What are Web Cursors?</h2>
-        <p>Web cursors are the visual indicators, typically a pointer, that show the position of a user's mouse or touchpad on a web page and allow them to interact with elements by clicking, hovering, or scrolling. Websites can use default cursors or customize them with different shapes, colors, and effects using HTML, CSS, and JavaScript to match the site's design and provide feedback.</p>
+<body style="background-color: blanchedalmond; font-family: Arial, sans-serif; margin: 0; padding: 20px;">
+    
+    <!-- Header Section -->
+    <div style="text-align: center; padding: 20px; background-color: white; border-radius: 10px; margin-bottom: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <h1 title="This is the main title of the page" style="color: coral; font-size: 48px; margin: 10px 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">Web Cursors Explained</h1>
+        <h3 title="This is the author of the page" style="background-color: coral; color: white; padding: 10px; border-radius: 5px; display: inline-block;">written by <span style="color: lime; font-weight: bold;">Edenian Knight</span></h3>
     </div>
-    <div>
-        <h2>Types of Web cursors.</h2>
 
-        <ul>
-            <li>Caret Cursor</li>
-            <li>Pointer Cursor</li>
-            <li>Text Cursor</li>
+    <!-- Banner Image -->
+    <div style="text-align: center; margin-bottom: 30px;">
+        <img src="https://i.postimg.cc/7LY4ZDnR/web-cursors.png" alt="An image of webcursors" title="A banner image showing basic web cursors" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+    </div>
+
+    <!-- Introduction Section -->
+    <div style="background-color: white; padding: 25px; border-radius: 10px; margin-bottom: 30px; border-left: 5px solid coral;">
+        <h2 style="color: coral; font-size: 32px; margin-top: 0;">What are Web Cursors?</h2>
+        <p style="line-height: 1.8; color: #333; font-size: 18px;">Web cursors are the visual indicators, typically a pointer, that show the position of a user's mouse or touchpad on a web page and allow them to interact with elements by clicking, hovering, or scrolling. Websites can use default cursors or customize them with different shapes, colors, and effects using HTML, CSS, and JavaScript to match the site's design and provide feedback.</p>
+    </div>
+
+    <!-- Interactive Demo Section -->
+    <div id="cursorDemo" style="background-color: white; padding: 25px; border-radius: 10px; margin-bottom: 30px; border: 3px solid coral; text-align: center;">
+        <h2 style="color: coral; font-size: 28px; margin-top: 0;">🎮 Interactive Cursor Demo</h2>
+        <p style="color: #666; margin-bottom: 20px;">Click the buttons below to change your cursor throughout the page!</p>
+        <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;">
+            <button id="defaultBtn" style="padding: 12px 24px; background-color: coral; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; font-weight: bold;">Default</button>
+            <button id="pointerBtn" style="padding: 12px 24px; background-color: #00bcd4; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; font-weight: bold;">Pointer</button>
+            <button id="textBtn" style="padding: 12px 24px; background-color: #9c27b0; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; font-weight: bold;">Text</button>
+            <button id="crosshairBtn" style="padding: 12px 24px; background-color: #4caf50; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; font-weight: bold;">Crosshair</button>
+        </div>
+        <p id="cursorStatus" style="color: coral; font-weight: bold; font-size: 18px;">Current Cursor: Default</p>
+    </div>
+
+    <!-- Click Counter -->
+    <div style="background-color: white; padding: 25px; border-radius: 10px; margin-bottom: 30px; border: 3px solid #ff9800; text-align: center;">
+        <h2 style="color: #ff9800; font-size: 28px; margin-top: 0;">👆 Click Counter Game</h2>
+        <p style="color: #666; margin-bottom: 20px;">How many times can you click in 10 seconds?</p>
+        <div id="clickBox" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px; border-radius: 10px; margin: 20px auto; max-width: 400px; cursor: pointer; transition: transform 0.1s;">
+            <p style="color: white; font-size: 48px; font-weight: bold; margin: 0;" id="clickCount">0</p>
+            <p style="color: white; font-size: 18px; margin: 10px 0;">clicks</p>
+        </div>
+        <button id="startGame" style="padding: 15px 30px; background-color: #ff9800; color: white; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; font-weight: bold; margin-top: 10px;">Start Game!</button>
+        <p id="gameStatus" style="margin-top: 15px; font-size: 16px; color: #666;"></p>
+        <p id="highScore" style="margin-top: 10px; font-size: 14px; color: #ff9800; font-weight: bold;">High Score: 0</p>
+    </div>
+
+    <!-- Types Section -->
+    <div style="background-color: white; padding: 25px; border-radius: 10px; margin-bottom: 30px;">
+        <h2 style="color: coral; font-size: 32px; border-bottom: 3px solid coral; padding-bottom: 10px;">Types of Web Cursors</h2>
+
+        <ul style="list-style-type: none; padding: 0; font-size: 20px; margin: 20px 0;">
+            <li class="cursorListItem" style="background-color: #ffe4e1; padding: 15px; margin: 10px 0; border-radius: 5px; border-left: 4px solid coral; cursor: pointer; transition: transform 0.2s;">🖱️ Caret Cursor (Default Pointer)</li>
+            <li class="cursorListItem" style="background-color: #e0f7fa; padding: 15px; margin: 10px 0; border-radius: 5px; border-left: 4px solid #00bcd4; cursor: pointer; transition: transform 0.2s;">👆 Pointer Cursor (Hand)</li>
+            <li class="cursorListItem" style="background-color: #f3e5f5; padding: 15px; margin: 10px 0; border-radius: 5px; border-left: 4px solid #9c27b0; cursor: pointer; transition: transform 0.2s;">📝 Text Cursor (I-beam)</li>
         </ul>
 
-        <h3>Caret Cursor</h3>
-        <img src="images/arrow-pointer-solid-full (1).svg" alt="An image of a caret cursor" width="300">
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati excepturi delectus tempore. Quis officiis numquam aliquam officia corporis! Commodi asperiores esse ducimus repudiandae deserunt quos voluptatibus quasi nulla dolores temporibus?
-        Soluta quae ducimus, laudantium facere similique quaerat error dolor rerum tempora non et modi nulla. Repellat molestiae corporis blanditiis praesentium ea iste quis impedit enim neque. Qui nihil amet ad.
-        Natus voluptates facilis recusandae magni dolores cupiditate expedita mollitia quaerat voluptate doloremque eius consectetur eaque voluptas exercitationem, modi beatae fuga laborum explicabo itaque animi illo quo placeat ipsa. Modi, commodi.
-        Perferendis fuga, labore tempora quisquam cupiditate perspiciatis nostrum totam? Et nemo accusamus fugit non asperiores. Eum quasi incidunt harum fugit quod sunt laborum tenetur, sint cupiditate illo aperiam! Itaque, cumque?
-        Modi quisquam, fugiat ducimus accusantium iusto harum. Nihil dignissimos iste enim cum ad quisquam laborum illum optio eligendi sequi, in sapiente reprehenderit fugit, ratione voluptate quidem amet iusto, iure deleniti?</p>
+        <!-- Caret Cursor -->
+        <div style="background-color: #fff5f5; padding: 20px; margin: 30px 0; border-radius: 10px; border: 2px solid coral;">
+            <h3 style="color: coral; font-size: 28px; margin-top: 0; cursor: default;">Caret Cursor (Default Pointer)</h3>
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="images/arrow-pointer-solid-full (1).svg" alt="An image of a caret cursor" style="width: 100px; height: auto; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));">
+            </div>
+            <p style="line-height: 1.8; color: #444; font-size: 16px; text-align: justify;">This is the <span style="background-color: yellow; padding: 2px 5px; font-weight: bold;">default cursor</span> you see most of the time when browsing websites. It appears as an arrow and is used for general navigation. When you move your mouse around this text, you'll see the caret cursor! It's called a "caret" because it points at things, helping you select and click on items.</p>
+            <div style="background-color: white; padding: 15px; border-radius: 5px; margin-top: 15px; border-left: 4px solid #ff6b6b;">
+                <p style="margin: 0; font-size: 14px; color: #666;"><strong style="color: coral;">Try it:</strong> Move your mouse over this box to see the default cursor in action!</p>
+            </div>
+        </div>
 
-        <h3>Pointer Cursor</h3>
-        <img src="images/hand-pointer-solid-full.svg" alt="image of a pointer" width="300">
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat praesentium deserunt vitae hic ex, magnam enim odio consequuntur ea illum magni dolorum, sint atque obcaecati accusantium unde corporis placeat accusamus!
-        Exercitationem est voluptatibus neque iste hic ipsa, at animi deserunt id voluptatem, laboriosam sequi tempore! Expedita ex qui provident architecto accusamus ab odio? Enim explicabo praesentium inventore ipsum officia vero?
-        Exercitationem impedit culpa, praesentium eveniet nobis quidem saepe eaque voluptatum sint nostrum assumenda facere sapiente consequatur dolor rem minus nisi voluptate veritatis. Ullam velit amet dignissimos! Quibusdam perspiciatis soluta quod?
-        Necessitatibus reiciendis magnam eius quas harum omnis, nam itaque fugit vel! Quibusdam, sequi? Vero illum, voluptate totam porro, omnis, ducimus in repudiandae quidem quasi soluta voluptatem optio. Optio, repudiandae libero.
-        Magnam, saepe molestias. Dolores ratione illo dicta incidunt, maxime harum culpa neque numquam repellat earum ad molestiae fugit pariatur quibusdam non fuga eligendi facere? Asperiores corrupti qui quam aspernatur harum.</p>
+        <!-- Pointer Cursor -->
+        <div style="background-color: #f0f8ff; padding: 20px; margin: 30px 0; border-radius: 10px; border: 2px solid #00bcd4;">
+            <h3 style="color: #00bcd4; font-size: 28px; margin-top: 0; cursor: pointer;">Pointer Cursor (Hand)</h3>
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="images/hand-pointer-solid-full.svg" alt="image of a pointer" style="width: 100px; height: auto; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));">
+            </div>
+            <p style="line-height: 1.8; color: #444; font-size: 16px; text-align: justify;">The pointer cursor looks like a <span style="background-color: #b3e5fc; padding: 2px 5px; font-weight: bold;">pointing hand</span> and appears when you hover over clickable elements like links and buttons. It's a visual clue that tells you "Hey! You can click me!" This cursor makes websites more user-friendly by showing which elements are interactive.</p>
+            <div style="background-color: white; padding: 15px; border-radius: 5px; margin-top: 15px; border-left: 4px solid #00bcd4;">
+                <p style="margin: 0; font-size: 14px; color: #666;"><strong style="color: #00bcd4;">Try it:</strong> <a href="#" style="color: #00bcd4; text-decoration: underline; cursor: pointer;">Hover over this link</a> to see the pointer cursor!</p>
+            </div>
+        </div>
 
-        <h3>Text Cursor</h3>
-        <img src="images/i-cursor-solid-full.svg" alt="Image of a text cursor" width="300">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quae reprehenderit aut est nisi, inventore velit dolorum ut repellat, quisquam officiis illo doloremque eum quasi pariatur suscipit. Omnis, repellendus blanditiis.
-        Totam, asperiores sapiente. Corporis dignissimos officiis, eos quos nostrum nulla animi officia sed ad? Ipsum cumque sint consequuntur doloribus ad non. Autem labore corporis tempora sequi dignissimos eaque quis rerum.
-        Nam error est eum sunt harum voluptates in ex labore molestias iste ullam quos facere obcaecati minima voluptatibus alias pariatur provident et, laudantium mollitia neque? Libero eaque maxime exercitationem distinctio.
-        Neque, accusamus. Possimus quia neque dolorum placeat cum ut autem nihil sapiente quod eveniet asperiores voluptatibus commodi perferendis laboriosam, repudiandae vel velit! Quisquam, sunt. Facilis fuga magnam rem aliquid fugiat?
-        Assumenda, quibusdam pariatur laborum aspernatur libero totam rem, dolorem amet voluptatem perspiciatis facere incidunt eligendi ab obcaecati tempora minima. Iure dolores officia dolore autem, rem cupiditate fugiat in praesentium ex.</p>
+        <!-- Text Cursor -->
+        <div style="background-color: #faf5ff; padding: 20px; margin: 30px 0; border-radius: 10px; border: 2px solid #9c27b0;">
+            <h3 style="color: #9c27b0; font-size: 28px; margin-top: 0; cursor: text;">Text Cursor (I-beam)</h3>
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="images/i-cursor-solid-full.svg" alt="Image of a text cursor" style="width: 100px; height: auto; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));">
+            </div>
+            <p style="line-height: 1.8; color: #444; font-size: 16px; text-align: justify;">The text cursor, also called an <span style="background-color: #e1bee7; padding: 2px 5px; font-weight: bold;">I-beam</span>, appears when you hover over text that you can select or edit. It looks like a capital "I" and helps you position your cursor precisely when selecting or typing text. You'll see this in text boxes, input fields, and when selecting text on web pages.</p>
+            <div style="background-color: white; padding: 15px; border-radius: 5px; margin-top: 15px; border-left: 4px solid #9c27b0;">
+                <p style="margin: 0; font-size: 14px; color: #666; margin-bottom: 10px;"><strong style="color: #9c27b0;">Try it:</strong> Hover and type in the text box below!</p>
+                <input type="text" id="textInput" placeholder="Type something here!" style="padding: 8px; border: 2px solid #9c27b0; border-radius: 5px; width: 100%; max-width: 300px; cursor: text; font-size: 14px;">
+                <p id="charCount" style="margin: 10px 0 0 0; font-size: 12px; color: #9c27b0;">Characters typed: 0</p>
+            </div>
+        </div>
     </div>
-    <footer>
-        <a href="https://github.com/EdenianKnight" target="_blank">
-            <img src="images/github-logo.svg" alt="github logo" width="30" height="auto">
-        </a>
-        <p title="This is the footer">by Darth Jade-i &copy; 2025</p>
+
+    <!-- Fun Fact Box -->
+    <div id="funFact" style="background-color: #fff3cd; padding: 20px; border-radius: 10px; margin-bottom: 30px; border: 2px dashed #ffc107; cursor: pointer; transition: transform 0.2s;">
+        <h3 style="color: #ff9800; margin-top: 0; font-size: 24px;">💡 Fun Fact!</h3>
+        <p style="color: #333; font-size: 16px; line-height: 1.6; margin: 0;">Did you know? The first computer mouse was invented in 1964 by Douglas Engelbart, and it was made of wood! Today, we can customize cursors using CSS to make websites more fun and interactive.</p>
+        <p style="color: #999; font-size: 12px; margin-top: 10px; font-style: italic;">Click me for another fact!</p>
+    </div>
+
+    <!-- Learning Note -->
+    <div style="background-color: #e8f5e9; padding: 20px; border-radius: 10px; margin-bottom: 30px; border-left: 5px solid #4caf50;">
+        <h3 style="color: #2e7d32; margin-top: 0; font-size: 28px;">📚 Learning About Web Development</h3>
+        
+        <p style="color: #333; font-size: 16px; line-height: 1.8; margin-bottom: 20px;">This webpage was built using the three main technologies of web development: <strong style="color: #e65100;">HTML</strong>, <strong style="color: #1976d2;">CSS</strong>, and <strong style="color: #f9a825;">JavaScript</strong>. Let's learn how they work together!</p>
+        
+        <!-- HTML Section -->
+        <div style="background-color: white; padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid #e65100;">
+            <h4 style="color: #e65100; margin-top: 0; font-size: 20px;">🏗️ HTML (HyperText Markup Language)</h4>
+            <p style="color: #555; font-size: 15px; line-height: 1.6; margin: 0;">HTML is the <strong>structure</strong> of the webpage - it's like the skeleton of a building! It uses tags like <code style="background-color: #ffe0b2; padding: 2px 6px; border-radius: 3px; font-family: monospace;">&lt;h1&gt;</code>, <code style="background-color: #ffe0b2; padding: 2px 6px; border-radius: 3px; font-family: monospace;">&lt;p&gt;</code>, <code style="background-color: #ffe0b2; padding: 2px 6px; border-radius: 3px; font-family: monospace;">&lt;div&gt;</code>, and <code style="background-color: #ffe0b2; padding: 2px 6px; border-radius: 3px; font-family: monospace;">&lt;button&gt;</code> to create headings, paragraphs, containers, and interactive elements. Without HTML, there would be no webpage at all!</p>
+        </div>
+        
+        <!-- CSS Section -->
+        <div style="background-color: white; padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid #1976d2;">
+            <h4 style="color: #1976d2; margin-top: 0; font-size: 20px;">🎨 CSS (Cascading Style Sheets)</h4>
+            <p style="color: #555; font-size: 15px; line-height: 1.6; margin-bottom: 12px;">CSS is the <strong>styling</strong> of the webpage - it's like painting and decorating a building! CSS controls colors, fonts, sizes, spacing, and layout. There are three ways to add CSS to a webpage:</p>
+            
+            <div style="margin-left: 15px;">
+                <p style="margin: 10px 0; color: #555; font-size: 14px;">
+                    <strong style="color: #1976d2;">1. Inline CSS:</strong> Written directly in HTML tags using the <code style="background-color: #e3f2fd; padding: 2px 6px; border-radius: 3px; font-family: monospace;">style=""</code> attribute. This webpage uses inline CSS! Example: <code style="background-color: #e3f2fd; padding: 2px 6px; border-radius: 3px; font-family: monospace;">&lt;p style="color: red;"&gt;</code>
+                </p>
+                
+                <p style="margin: 10px 0; color: #555; font-size: 14px;">
+                    <strong style="color: #1976d2;">2. Internal CSS:</strong> Written inside a <code style="background-color: #e3f2fd; padding: 2px 6px; border-radius: 3px; font-family: monospace;">&lt;style&gt;</code> tag in the HTML file's <code style="background-color: #e3f2fd; padding: 2px 6px; border-radius: 3px; font-family: monospace;">&lt;head&gt;</code> section. Good for single-page styling. Example: <code style="background-color: #e3f2fd; padding: 2px 6px; border-radius: 3px; font-family: monospace;">&lt;style&gt; p { color: red; } &lt;/style&gt;</code>
+                </p>
+                
+                <p style="margin: 10px 0; color: #555; font-size: 14px;">
+                    <strong style="color: #1976d2;">3. External CSS:</strong> Written in a separate <code style="background-color: #e3f2fd; padding: 2px 6px; border-radius: 3px; font-family: monospace;">.css</code> file and linked to HTML. This is the most professional way and keeps code organized! Example: <code style="background-color: #e3f2fd; padding: 2px 6px; border-radius: 3px; font-family: monospace;">&lt;link rel="stylesheet" href="styles.css"&gt;</code>
+                </p>
+            </div>
+        </div>
+        
+        <!-- JavaScript Section -->
+        <div style="background-color: white; padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid #f9a825;">
+            <h4 style="color: #f9a825; margin-top: 0; font-size: 20px;">⚡ JavaScript</h4>
+            <p style="color: #555; font-size: 15px; line-height: 1.6; margin: 0;">JavaScript is the <strong>interactivity</strong> of the webpage - it's like the electricity and smart systems in a building! It makes things happen when you click buttons, type in text boxes, or play games. This webpage uses <strong style="color: #f9a825;">external JavaScript</strong> stored in a separate file called <code style="background-color: #fff9c4; padding: 2px 6px; border-radius: 3px; font-family: monospace;">script.js</code>. All the cool interactive features like the click counter game, cursor changer, and animations are powered by JavaScript!</p>
+        </div>
+        
+        <!-- Git & GitHub Section -->
+        <div style="background-color: white; padding: 15px; border-radius: 8px; border-left: 4px solid #6e40aa;">
+            <h4 style="color: #6e40aa; margin-top: 0; font-size: 20px;">🔄 Git & GitHub (Version Control)</h4>
+            <p style="color: #555; font-size: 15px; line-height: 1.6; margin-bottom: 12px;">Git and GitHub help us <strong>save and track changes</strong> to our code - it's like having a time machine for your project! Version control lets you save different versions of your work, go back if you make a mistake, and share your code with others.</p>
+            
+            <div style="margin-left: 15px;">
+                <p style="margin: 10px 0; color: #555; font-size: 14px;">
+                    <strong style="color: #6e40aa;">📝 git add:</strong> Prepares your changes to be saved. It's like putting items in a shopping cart before checkout. Example: <code style="background-color: #f3e5ff; padding: 2px 6px; border-radius: 3px; font-family: monospace;">git add index.html</code>
+                </p>
+                
+                <p style="margin: 10px 0; color: #555; font-size: 14px;">
+                    <strong style="color: #6e40aa;">💾 git commit:</strong> Saves a snapshot of your work with a message describing what you changed. Like taking a photo of your progress! Example: <code style="background-color: #f3e5ff; padding: 2px 6px; border-radius: 3px; font-family: monospace;">git commit -m "Added cursor demo"</code>
+                </p>
+                
+                <p style="margin: 10px 0; color: #555; font-size: 14px;">
+                    <strong style="color: #6e40aa;">🚀 git push:</strong> Uploads your saved work to GitHub (online storage) so others can see it and you can access it from anywhere. Example: <code style="background-color: #f3e5ff; padding: 2px 6px; border-radius: 3px; font-family: monospace;">git push origin main</code>
+                </p>
+                
+                <p style="margin: 10px 0; color: #555; font-size: 14px;">
+                    <strong style="color: #6e40aa;">🌐 GitHub:</strong> A website where developers store their code online, collaborate with others, and showcase their projects. This website's code is stored on GitHub!
+                </p>
+            </div>
+        </div>
+        
+        <div style="background-color: #fff9e6; padding: 12px; border-radius: 5px; margin-top: 15px; border: 2px solid #ffc107;">
+            <p style="margin: 0; color: #555; font-size: 14px; line-height: 1.6;">
+                <strong style="color: #f57c00;">💡 Pro Tip:</strong> Think of HTML as the bones, CSS as the skin and clothes, JavaScript as the muscles and brain, and Git/GitHub as the notebook that remembers everything you've built! Together, they create amazing websites like this one.
+            </p>
+        </div>
+    </div>
+
+    <!-- Mindsmith Testimonial Section -->
+    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 6px 12px rgba(0,0,0,0.15); text-align: center;">
+        <div style="background-color: white; padding: 25px; border-radius: 10px; max-width: 800px; margin: 0 auto;">
+            <h3 style="color: #667eea; font-size: 28px; margin-top: 0; margin-bottom: 15px;">🎓 How I Learned to Build This!</h3>
+            
+            <div style="background-color: #f8f9ff; padding: 20px; border-radius: 8px; border-left: 5px solid #667eea; margin-bottom: 20px;">
+                <p style="color: #333; font-size: 18px; line-height: 1.8; margin: 0; text-align: left;">
+                    <span style="font-size: 24px;">👋</span> Hey there! I learned to build this website and many more wonderful things while enrolled in the <strong style="color: #667eea;">Mindsmith Online School</strong>! 🚀
+                </p>
+            </div>
+            
+            <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin: 20px 0;">
+                <div style="background-color: #fff9e6; padding: 15px 20px; border-radius: 8px; flex: 1; min-width: 250px; border: 2px solid #ffc107;">
+                    <p style="margin: 0; color: #555; font-size: 15px; line-height: 1.6;">
+                        <strong style="color: #f57c00; font-size: 18px;">✨ What I Learned:</strong><br>
+                        HTML, CSS, JavaScript, and how to make cool websites like this one!
+                    </p>
+                </div>
+                
+                <div style="background-color: #e8f5e9; padding: 15px 20px; border-radius: 8px; flex: 1; min-width: 250px; border: 2px solid #4caf50;">
+                    <p style="margin: 0; color: #555; font-size: 15px; line-height: 1.6;">
+                        <strong style="color: #2e7d32; font-size: 18px;">👨‍🏫 My Teacher:</strong><br>
+                        Mr. Solomon Okomowho made coding fun and easy to understand!
+                    </p>
+                </div>
+            </div>
+            
+            <p style="color: #666; font-size: 16px; line-height: 1.7; margin: 20px 0; text-align: left;">
+                If you want to learn how to build awesome websites, games, and apps too, you should definitely check out Mindsmith! They teach kids like me how to code and create amazing things on the computer. 💻✨
+            </p>
+            
+            <div style="margin-top: 25px; padding-top: 20px; border-top: 2px dashed #ddd;">
+                <p style="color: #888; font-size: 14px; margin-bottom: 15px;">Want to learn more?</p>
+                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://mindsmithltd.com/" target="_blank" style="display: inline-block; padding: 12px 25px; background-color: #667eea; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px; transition: transform 0.2s; box-shadow: 0 3px 6px rgba(102, 126, 234, 0.3);">
+                        🌐 Visit Mindsmith Online School
+                    </a>
+                    <a href="https://www.linkedin.com/in/solomon-okomowho/" target="_blank" style="display: inline-block; padding: 12px 25px; background-color: #0077b5; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px; transition: transform 0.2s; box-shadow: 0 3px 6px rgba(0, 119, 181, 0.3);">
+                        👨‍💼 Meet Mr. Solomon
+                    </a>
+                </div>
+            </div>
+            
+            <div style="background-color: #ffe4e1; padding: 12px; border-radius: 8px; margin-top: 20px;">
+                <p style="margin: 0; color: #d32f2f; font-size: 13px; font-weight: bold;">
+                    🌟 Parents: Your kids can learn web development, coding, and more at Mindsmith! 🌟
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 30px; background-color: white; border-radius: 10px; margin-top: 40px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <div style="margin-bottom: 15px;">
+            <a href="https://github.com/EdenianKnight" target="_blank" style="text-decoration: none;">
+                <img src="images/github-logo.svg" alt="github logo" style="width: 40px; height: auto; transition: transform 0.3s; cursor: pointer;">
+            </a>
+        </div>
+        <p title="This is the footer" style="margin: 0; color: #666; font-size: 14px;">by <span style="color: coral; font-weight: bold;">Darth Jade-i</span> &copy; 2025</p>
+        <p style="margin-top: 10px; color: #999; font-size: 12px;">Made with ❤️ for young web developers</p>
+        <p id="visitTime" style="margin-top: 15px; color: #666; font-size: 14px; font-weight: bold;"></p>
     </footer>
+
+    <!-- Link to external JavaScript file -->
+    <script src="script.js"></script>
+
 </body>
 </html>
